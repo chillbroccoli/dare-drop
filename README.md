@@ -92,7 +92,7 @@ cd server && yarn db:seed
 cd server && pnpm db:seed
 ```
 
-## Run in Dev Mode
+### Run in Dev Mode
 
 Finally we can run `client` and `server` in `dev` modes
 
@@ -137,3 +137,7 @@ pnpm dev
 ```
 
 But keep in mind you'd have to alter scripts in the `package.json` in the root of the project, as it uses `pnpm` by default
+
+### REST API Testing
+
+If you want to test REST API Endpoints through `Postman` software, you can do that by importing `dare-drop.postman_collection.json` into your `Postman` collections, then you'd have to do the same for `environment`, you need to import `dare-drop.postman_environment.json` to your `Postman` environments and set it as active one, as it have environment variables that are needed to run requests
