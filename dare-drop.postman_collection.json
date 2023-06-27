@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "efdc9a53-6d0d-41ba-8d4d-70040933d34c",
+		"name": "dare-drop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8180326"
+	},
+	"item": [
+		{
+			"name": "Streamers",
+			"item": [
+				{
+					"name": "Get All Streamers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/streamers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"streamers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Streamer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"{{user_id}}\",\n    \"name\": \"Asmongold\",\n    \"platform\": \"TWITCH\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus enim eu quam venenatis accumsan. Cras laoreet varius enim a consectetur.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/streamers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"streamers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Streamer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/streamers/{{streamer_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"streamers",
+								"{{streamer_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote Streamer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"streamerId\": \"{{streamer_id}}\",\n    \"userId\": \"{{user_id}}\",\n    \"type\": \"UPVOTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/streamers/{{streamer_id}}/vote",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"streamers",
+								"{{streamer_id}}",
+								"vote"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/healthcheck",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

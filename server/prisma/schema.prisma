@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Streamer {
+  id          String  @id @default(uuid())
+  userId      String
+  name        String  @unique
+  platform    String
+  description String
+  imageUrl    String?
+  votes       Vote[]
+}
+
+model Vote {
+  id         String   @id @default(uuid())
+  userId     String
+  type       String
+  streamer   Streamer @relation(fields: [streamerId], references: [id])
+  streamerId String
+
+  @@unique([streamerId, userId])
+}

@@ -1,0 +1,22 @@
+{
+  "name": "dare-drop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:dev": "cd client && pnpm dev",
+    "server:dev": "cd server && pnpm dev",
+    "dev": "concurrently \"pnpm client:dev\" \"pnpm server:dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^2.8.8"
+  }
+}
