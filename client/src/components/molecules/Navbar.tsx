@@ -1,5 +1,5 @@
 import NiceModal from "@ebay/nice-modal-react";
-import { IconMenu2, IconPlus } from "@tabler/icons-react";
+import { IconPlus } from "@tabler/icons-react";
 
 import { Logo } from "../atoms/Logo";
 import { CreateStreamerModal } from "../modals/CreateStreamerModal";
@@ -11,13 +11,7 @@ export function Navbar() {
     <div className="bg-zinc-900">
       <Container>
         <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span className="sr-only">Open main menu</span>
-              <IconMenu2 />
-            </button>
-          </div>
-          <div className="items-center justify-center flex-1 hidden sm:items-stretch sm:justify-start sm:flex">
+          <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex items-center flex-shrink-0">
               <Logo />
             </div>
