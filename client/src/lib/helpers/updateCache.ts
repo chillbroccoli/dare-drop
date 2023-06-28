@@ -11,11 +11,9 @@ export function updateCache(client: QueryClient, newVote: VoteResponse) {
   client.setQueryData(
     [QUERY_KEYS.ALL_STREAMERS],
     (oldData: GetAllStreamersResponse | undefined) => {
-      const data = oldData;
+      if (!oldData) return;
 
-      if (!data) return;
-
-      const streamers = data?.streamers || [];
+      const streamers = oldData?.streamers || [];
 
       const newStreamers = streamers.map((streamer: Streamer) => {
         if (streamer.id !== newVote.streamerId) return streamer;
@@ -24,7 +22,7 @@ export function updateCache(client: QueryClient, newVote: VoteResponse) {
           (vote) => vote.userId !== newVote.userId
         );
 
-        const newVotes = !newVote.type ? [...votes] : [...votes, newVote];
+        const newVotes = !newVote.type ? votes : [...votes, newVote];
 
         return {
           ...streamer,
@@ -33,7 +31,7 @@ export function updateCache(client: QueryClient, newVote: VoteResponse) {
       });
 
       return {
-        ...data,
+        ...oldData,
         streamers: newStreamers,
       };
     }
